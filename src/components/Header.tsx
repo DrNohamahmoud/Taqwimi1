@@ -1,5 +1,5 @@
 import React from "react";
-import { LogOut, ShieldCheck, Globe, FileText } from "lucide-react";
+import { LogOut, ShieldCheck, Globe } from "lucide-react";
 import Logo from "./Logo";
 import { Language, translations } from "../translations";
 
@@ -12,11 +12,6 @@ interface HeaderProps {
 
 export default function Header({ onLogout, userEmail, lang, onToggleLang }: HeaderProps) {
   const t = translations[lang].nav;
-  const isRtl = lang === "ar";
-
-  const handleDownloadDocxReport = () => {
-    window.open("/api/export-app-report-docx", "_blank");
-  };
 
   return (
     <nav className="sticky top-0 z-50 bg-slate-950/95 backdrop-blur-md border-b border-blue-500/20 shadow-xl transition-colors duration-300">
@@ -27,17 +22,6 @@ export default function Header({ onLogout, userEmail, lang, onToggleLang }: Head
 
           {/* User Email & Control Actions */}
           <div className="flex items-center gap-2 sm:gap-3">
-            {/* Download Word Report Button */}
-            <button
-              type="button"
-              onClick={handleDownloadDocxReport}
-              className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-300 border border-emerald-500/40 font-bold text-xs shadow-sm transition-all cursor-pointer hover:scale-105 active:scale-95"
-              title={isRtl ? "تحميل تقرير وورد (.docx) شامل عن التطبيق" : "Download Full Word (.docx) Report"}
-            >
-              <FileText className="w-3.5 h-3.5 text-emerald-400" />
-              <span>{isRtl ? "تقرير وورد (.docx)" : "Word Report (.docx)"}</span>
-            </button>
-
             {userEmail && (
               <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-900/80 border border-slate-800 text-xs text-slate-300">
                 <ShieldCheck className="w-4 h-4 text-blue-400" />
