@@ -325,10 +325,7 @@ export default function SupportTools({ questionsList, lang }: SupportToolsProps)
               title={isRtl ? "تحميل التقرير الوثائقي والتنفيذي الشامل للتطبيق بصيغة Word (.docx)" : "Download Complete System Word (.docx) Report"}
             >
               <FileText className="w-4 h-4 text-emerald-200" />
-              <span>{isRtl ? "تحميل تقرير وورد (.docx) للتطبيق الشامل" : "Download System Word (.docx) Report"}</span>
-            </button>
-            <button
-              onClick={handlePrintExam}
+                      onClick={handlePrintExam}
               className="bg-slate-900 hover:bg-slate-800 active:scale-[0.99] text-white px-5 py-3 rounded-xl font-bold text-xs sm:text-sm shadow-md shadow-slate-900/20 flex items-center gap-2 cursor-pointer transition-all border-2 border-slate-800"
             >
               <Printer className="w-4 h-4 text-blue-400" />
